@@ -13,9 +13,9 @@ fifth = []
 alph = []
 
 # letters to avoid, that are not part of the word
-avoid = ['S','R','I','C']
+avoid = ['S','R','I','H','S','T','W','B','O','V','M','P']
 # letters to include, that ARE part of the word
-include = ['']
+include = ['C','E','A','L']
 
 for i in range(65, 91):
     if (chr(i) not in avoid):
@@ -23,18 +23,20 @@ for i in range(65, 91):
 first = second[:] = third[:] = fourth[:] = fifth[:] = alph[:]
 
 # remove letters on specific spots
-firstR = ['']
+firstR = ['C','A']
 secondR = ['']
-thirdR = ['']
-fourthR = ['']
+thirdR = ['E']
+fourthR = ['A','L']
 fifthR = ['']
 
 # set letters that have been found in the right spot
 #first = ['']
-second = ['H']
-third = ['E']
-fourth = ['A']
-fifth = ['T']
+second = ['A']
+#third = ['']
+#fourth = ['']
+fifth = ['E']
+
+valid = False
 
 for f in first:
     if f not in firstR:
@@ -47,17 +49,21 @@ for f in first:
                                 for fi in fifth:
                                     if fi not in fifthR:
                                         word = f + s + t + fo + fi
+                                        valid = True
                                         for letter in include:
-                                            if letter in word:
-                                                # rules
-                                                if (
-                                                    not(f==s==t or s==t==fo or t==fo==fi) 
-                                                    and ('XS' not in word)
-                                                    and (fi!='V' and fi!='J')
-                                                    and not('Q' in word and 'QU' not in word)
-                                                ):
-                                                    counter += 1
-                                                    print (word, end = ' ')
-                                                    if counter == wpl:
-                                                        counter = 0
-                                                        print()
+                                            if letter not in word:
+                                                valid = False
+                                        if valid == True:
+                                            # rules
+                                            if (
+                                                not(f==s==t or s==t==fo or t==fo==fi) 
+                                                and ('XS' not in word)
+                                                and (fi!='V' and fi!='J')
+                                                and not('Q' in word and 'QU' not in word)
+                                            ):
+                                                counter += 1
+                                                print (word, end = ' ')
+                                                if counter == wpl:
+                                                    counter = 0
+                                                    print()
+                                            
