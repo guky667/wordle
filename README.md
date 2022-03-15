@@ -4,10 +4,9 @@ Python assist for playing Wordle
 How to use:
   
 - Start with a word, ideally "SERAI" as it _should_ yield the most info
-- Populate the "avoid" array with letters that are not part of the word
-- Populate the "include" array with letters that are part of the word
-- Add letters to the arrays ending in R to skip words that have letters in those positions
-- Uncomment and add the letter found in each spot  
+- Add BLACK LETTERS to the "avoid" array
+- Add YELLOW LETTERS to each R (remove) array they were found in (firstR, secondR, etc.)
+- Add GREEN LETTERS to each spot they were found in (first, second, etc.)
 
 Running:
 - ALL arrays take **single UPPERCASE letters** as elements
