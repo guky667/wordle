@@ -1,9 +1,10 @@
 # 2022 Alin-Gabriel Drăghici <guky667@gmail.com>  #
 # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# region Vars and inits
 # SERAI _should_ be the best starting word
 
-wpl = 20
+wpl = 20 # Words Per Line
 counter = 0
 first = []
 second = []
@@ -11,9 +12,10 @@ third = []
 fourth = []
 fifth = []
 alph = []
+#endregion
 
 # letters to avoid, that are not part of the word
-avoid = ['S','R','I','L','B','T','E']
+avoid = ['S','R','I','L','B','T']
 # letters to include, that ARE part of the word
 include = ['E','A']
 
