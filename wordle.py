@@ -15,28 +15,29 @@ alph = []
 #endregion
 
 # letters to avoid, that are not part of the word
-avoid = ['S','R','I','L','B','T']
+avoid = ['S','E','I','B','T','V','D']
 # letters to include, that ARE part of the word
-include = ['E','A']
+include = ['R','A','L']
 
 for i in range(65, 91):
+    # generate the entire ALPHabet (of uppercase letters)
     if (chr(i) not in avoid):
         alph.append(chr(i))
 first = second[:] = third[:] = fourth[:] = fifth[:] = alph[:]
 
 # remove letters on specific spots
-firstR = ['']
-secondR = ['E']
-thirdR = ['']
-fourthR = ['A']
+firstR = ['L','A']
+secondR = ['']
+thirdR = ['R','A']
+fourthR = ['']
 fifthR = ['']
 
 # set letters that have been found in the right spot
 #first = ['']
 #second = ['']
-third = ['A']
-#fourth = ['']
-fifth = ['E']
+#third = ['']
+fourth = ['A']
+#fifth = ['']
 
 # check that input data is correct
 exclude = [firstR[0], secondR[0], thirdR[0], fourthR[0], fifthR[0]]
@@ -48,6 +49,7 @@ for letter in include:
         raise SystemExit(0)
 
 for f in first:
+    print(end = '\n\n')
     if f not in firstR:
         for s in second:
             if s not in secondR:
