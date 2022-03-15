@@ -16,7 +16,7 @@ all_letters = []
 
 ### BLACK LETTERS 
 # letters to avoid, that are not part of the word
-black_letters = ['S','E','R','L','M','X']
+black_letters = ['E','R','I']
 
 # generate the entire alphabet (of uppercase letters)
 for char in range(65, 91):
@@ -31,15 +31,15 @@ black_letters = list(dict.fromkeys(black_letters))
 yellow1 = ['']
 yellow2 = ['']
 yellow3 = ['']
-yellow4 = ['']
-yellow5 = ['I']
+yellow4 = ['A']
+yellow5 = ['']
 
 ### GREEN LETTERS
 # set letters that have been found in the right position - uncomment and add letter
-#green1 = ['']
-green2 = ['I']
+green1 = ['S']
+#green2 = ['']
 #green3 = ['']
-green4 = ['A']
+#green4 = ['']
 #green5 = ['']
 
 #region Execution
@@ -84,8 +84,7 @@ for first_letter in green1:
                                                 print (word, end = '  ')
 
                                                 # output spacing based on which letters are static
-                                                if (len(green1) == 1 or
-                                                    (len(green2) == 1 and len(green1) == 1) or 
+                                                if ((len(green2) == 1 and len(green1) == 1) or 
                                                     (len(green3) == 1 and len(green2) == 1 and len(green1) == 1) or
                                                     (len(green4) == 1 and len(green3) == 1 and len(green2) == 1 and len(green1) == 1)
                                                 ):
