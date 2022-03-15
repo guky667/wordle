@@ -5,7 +5,7 @@ How to use:
   
 - Start with a word, ideally "SERAI" as it _should_ yield the most info
 - Add BLACK LETTERS to the "black_letters" array
-- Add YELLOW LETTERS to each "yellow" array they were found in (1, 2, etc.)
+- Add YELLOW LETTERS to each "yellow" array in the spot they were found in (1, 2, etc.)
 - Add GREEN LETTERS to each "green" array in the spot they were found in (1, 2, etc.); don't forget to uncomment the arays where leters were added
 
 Running:
