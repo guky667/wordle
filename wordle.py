@@ -3,7 +3,7 @@
 
 # SERAI _should_ be the best starting word
 
-wpl = 30
+wpl = 20
 counter = 0
 first = []
 second = []
@@ -13,9 +13,9 @@ fifth = []
 alph = []
 
 # letters to avoid, that are not part of the word
-avoid = ['S','R','I','H','S','T','W','B','O','V','M','P']
+avoid = ['S','R','I','L','B','T','E']
 # letters to include, that ARE part of the word
-include = ['C','E','A','L']
+include = ['E','A']
 
 for i in range(65, 91):
     if (chr(i) not in avoid):
@@ -23,20 +23,27 @@ for i in range(65, 91):
 first = second[:] = third[:] = fourth[:] = fifth[:] = alph[:]
 
 # remove letters on specific spots
-firstR = ['C','A']
-secondR = ['']
-thirdR = ['E']
-fourthR = ['A','L']
+firstR = ['']
+secondR = ['E']
+thirdR = ['']
+fourthR = ['A']
 fifthR = ['']
 
 # set letters that have been found in the right spot
 #first = ['']
-second = ['A']
-#third = ['']
+#second = ['']
+third = ['A']
 #fourth = ['']
 fifth = ['E']
 
-valid = False
+# check that input data is correct
+exclude = [firstR[0], secondR[0], thirdR[0], fourthR[0], fifthR[0]]
+
+for letter in include:
+    if letter in avoid:
+        print ('Cannot avoid and include the same letter: ', letter)
+        print ('Please remove', letter, 'from either the include or exclude list')
+        raise SystemExit(0)
 
 for f in first:
     if f not in firstR:
@@ -56,7 +63,7 @@ for f in first:
                                         if valid == True:
                                             # rules
                                             if (
-                                                not(f==s==t or s==t==fo or t==fo==fi) 
+                                                not(f==s==t or s==t==fo or t==fo==fi)
                                                 and ('XS' not in word)
                                                 and (fi!='V' and fi!='J')
                                                 and not('Q' in word and 'QU' not in word)
@@ -66,4 +73,3 @@ for f in first:
                                                 if counter == wpl:
                                                     counter = 0
                                                     print()
-                                            
