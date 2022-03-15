@@ -3,7 +3,7 @@ Python assist for playing Wordle
 
 How to use:
   
-- Start with a word, ideally "SERAI" as it _should_ yield the most info
+- Start with a word, ideally "SERAI" as it _should_ yield the most info (as per: https://towardsdatascience.com/a-frequency-analysis-on-wordle-9c5778283363)
 - Add BLACK LETTERS to the "black_letters" array
 - Add YELLOW LETTERS to each "yellow" array in the spot they were found in (1, 2, etc.)
 - Add GREEN LETTERS to each "green" array in the spot they were found in (1, 2, etc.); don't forget to uncomment the arays where leters were added
