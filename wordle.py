@@ -14,10 +14,9 @@ fifth = []
 alph = []
 #endregion
 
+### BLACK LETTERS 
 # letters to avoid, that are not part of the word
-avoid = ['']
-# letters to include, that ARE part of the word
-include = ['']
+avoid = ['R','A','I','N','D']
 
 for i in range(65, 91):
     # generate the entire ALPHabet (of uppercase letters)
@@ -25,17 +24,22 @@ for i in range(65, 91):
         alph.append(chr(i))
 first = second[:] = third[:] = fourth[:] = fifth[:] = alph[:]
 
+### YELLOW LETTERS
 # remove letters on specific spots
 firstR = ['']
-secondR = ['']
+secondR = ['E','P']
 thirdR = ['']
 fourthR = ['']
 fifthR = ['']
 
+# create list of letters to include based on Yellow Letters
+include = list(dict.fromkeys(','.join(filter(None,[*firstR, *secondR, *thirdR, *fourthR, *fifthR])).split(',')))
+
+### GREEN LETTERS
 # set letters that have been found in the right spot - uncomment and add letter
-#first = ['']
+first = ['S']
 #second = ['']
-#third = ['']
+third = ['E']
 #fourth = ['']
 #fifth = ['']
 
