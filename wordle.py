@@ -15,9 +15,9 @@ alph = []
 #endregion
 
 # letters to avoid, that are not part of the word
-avoid = ['S','E','I','B','T','V','D']
+avoid = ['']
 # letters to include, that ARE part of the word
-include = ['R','A','L']
+include = ['']
 
 for i in range(65, 91):
     # generate the entire ALPHabet (of uppercase letters)
@@ -26,17 +26,17 @@ for i in range(65, 91):
 first = second[:] = third[:] = fourth[:] = fifth[:] = alph[:]
 
 # remove letters on specific spots
-firstR = ['L','A']
+firstR = ['']
 secondR = ['']
-thirdR = ['R','A']
+thirdR = ['']
 fourthR = ['']
 fifthR = ['']
 
-# set letters that have been found in the right spot
+# set letters that have been found in the right spot - uncomment and add letter
 #first = ['']
 #second = ['']
 #third = ['']
-fourth = ['A']
+#fourth = ['']
 #fifth = ['']
 
 # check that input data is correct
@@ -48,16 +48,32 @@ for letter in include:
         print ('Please remove', letter, 'from either the include or exclude list')
         raise SystemExit(0)
 
+counter = 0
+
 for f in first:
-    print(end = '\n\n')
+    if (len(first) != 1):
+        print(end = '\n\n')
+        counter = 0
     if f not in firstR:
         for s in second:
+            if (len(first) == 1):
+                print(end = '\n\n')
+                counter = 0
             if s not in secondR:
                 for t in third:
+                    if (len(second) == 1 and len(first) == 1):
+                        print(end = '\n\n')
+                        counter = 0
                     if t not in thirdR:
                         for fo in fourth:
+                            if (len(third) == 1 and len(second) == 1 and len(first) == 1):
+                                print(end = '\n\n')
+                                counter = 0
                             if fo not in fourthR:
                                 for fi in fifth:
+                                    if (len(fourth) == 1 and len(third) == 1 and len(second) == 1 and len(first) == 1):
+                                        print(end = '\n\n')
+                                        counter = 0
                                     if fi not in fifthR:
                                         word = f + s + t + fo + fi
                                         valid = True
