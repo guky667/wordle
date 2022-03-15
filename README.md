@@ -6,7 +6,7 @@ How to use:
 - Start with a word, ideally "SERAI" as it _should_ yield the most info
 - Add BLACK LETTERS to the "avoid" array
 - Add YELLOW LETTERS to each R (remove) array they were found in (firstR, secondR, etc.)
-- Add GREEN LETTERS to each spot they were found in (first, second, etc.)
+- Add GREEN LETTERS to each spot they were found in (first, second, etc.); don't forget to uncomment the arays where leters were added
 
 Running:
 - ALL arrays take **single UPPERCASE letters** as elements
