@@ -16,7 +16,7 @@ all_letters = []
 
 ### BLACK LETTERS 
 # letters to avoid, that are not part of the word
-black_letters = ['S','R','A','P','L','P','L','T','H','W']
+black_letters = ['S','E','R','L','M','X']
 
 # generate the entire alphabet (of uppercase letters)
 for char in range(65, 91):
@@ -30,16 +30,16 @@ black_letters = list(dict.fromkeys(black_letters))
 # add letters to be removed from specific positions
 yellow1 = ['']
 yellow2 = ['']
-yellow3 = ['E']
-yellow4 = ['N']
-yellow5 = ['D','I']
+yellow3 = ['']
+yellow4 = ['']
+yellow5 = ['I']
 
 ### GREEN LETTERS
 # set letters that have been found in the right position - uncomment and add letter
 #green1 = ['']
-green2 = ['E']
+green2 = ['I']
 #green3 = ['']
-#green4 = ['']
+green4 = ['A']
 #green5 = ['']
 
 #region Execution
@@ -52,30 +52,18 @@ for yellow_letter in include:
         raise SystemExit(0)
 
 for first_letter in green1:
-    if (len(green1) != 1):
-        print(end = '\n\n')
-        counter = 0
     if first_letter not in yellow1:
+        if (len(green1) != 1):
+            print(end = '\n\n')
+            print_counter = 0
         for second_letter in green2:
             if second_letter not in yellow2:
-                if (len(green2) != 1 and len(green1) == 1):
-                    print(end = '\n\n')
-                    print_counter = 0
                 for third_letter in green3:
                     if third_letter not in yellow3:
-                        if (len(green3) != 1 and len(green2) == 1 and len(green1) == 1):
-                            print(end = '\n\n')
-                            print_counter = 0
                         for fourth_letter in green4:
                             if fourth_letter not in yellow4:
-                                if (len(green4) != 1 and len(green3) == 1 and len(green2) == 1 and len(green1) == 1):
-                                    print(end = '\n\n')
-                                    print_counter = 0
                                 for fifth_letter in green5:
                                     if fifth_letter not in yellow5:
-                                        if (len(green5) != 1 and len(green4) == 1 and len(green3) == 1 and len(green2) == 1 and len(green1) == 1):
-                                            print(end = '\n\n')
-                                            print_counter = 0
                                         word = first_letter + second_letter + third_letter + fourth_letter + fifth_letter
                                         valid = True
                                         for letter in include:
@@ -93,7 +81,17 @@ for first_letter in green1:
                                             and (fifth_letter not in ['V','J'])
                                             and not('Q' in word and 'QU' not in word)):
                                                 print_counter += 1
-                                                print (word, end = ' ')
+                                                print (word, end = '  ')
+
+                                                # output spacing based on which letters are static
+                                                if (len(green1) == 1 or
+                                                    (len(green2) == 1 and len(green1) == 1) or 
+                                                    (len(green3) == 1 and len(green2) == 1 and len(green1) == 1) or
+                                                    (len(green4) == 1 and len(green3) == 1 and len(green2) == 1 and len(green1) == 1)
+                                                ):
+                                                    print(end = '\n\n')
+                                                    print_counter = 0
+
                                                 if print_counter == words_per_line:
                                                     print_counter = 0
                                                     print()
