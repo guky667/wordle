@@ -18,12 +18,6 @@ alph = []
 # letters to avoid, that are not part of the word
 avoid = ['R','A','I','N','D']
 
-for i in range(65, 91):
-    # generate the entire ALPHabet (of uppercase letters)
-    if (chr(i) not in avoid):
-        alph.append(chr(i))
-first = second[:] = third[:] = fourth[:] = fifth[:] = alph[:]
-
 ### YELLOW LETTERS
 # remove letters on specific spots
 firstR = ['']
@@ -32,9 +26,6 @@ thirdR = ['']
 fourthR = ['']
 fifthR = ['']
 
-# create list of letters to include based on Yellow Letters
-include = list(dict.fromkeys(','.join(filter(None,[*firstR, *secondR, *thirdR, *fourthR, *fifthR])).split(',')))
-
 ### GREEN LETTERS
 # set letters that have been found in the right spot - uncomment and add letter
 first = ['S']
@@ -42,6 +33,16 @@ first = ['S']
 third = ['E']
 #fourth = ['']
 #fifth = ['']
+
+#region Execution
+for i in range(65, 91):
+    # generate the entire ALPHabet (of uppercase letters)
+    if (chr(i) not in avoid):
+        alph.append(chr(i))
+first = second[:] = third[:] = fourth[:] = fifth[:] = alph[:]
+
+# create list of letters to include based on Yellow Letters
+include = list(dict.fromkeys(','.join(filter(None,[*firstR, *secondR, *thirdR, *fourthR, *fifthR])).split(',')))
 
 # check that input data is correct
 exclude = [firstR[0], secondR[0], thirdR[0], fourthR[0], fifthR[0]]
@@ -97,3 +98,4 @@ for f in first:
                                                 if counter == wpl:
                                                     counter = 0
                                                     print()
+#endregion
