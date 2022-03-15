@@ -18,7 +18,7 @@ all_letters = []
 # letters to avoid, that are not part of the word
 black_letters = ['R','A','I','N','D','L','T','H']
 
-# generate the entire ALPHabet (of uppercase letters)
+# generate the entire alphabet (of uppercase letters)
 for char in range(65, 91):
     if (chr(char) not in black_letters):
         all_letters.append(chr(char))
