@@ -16,37 +16,44 @@ all_letters = []
 
 ### BLACK LETTERS 
 # letters to avoid, that are not part of the word
-black_letters = ['R','A','I','N','D','L','T','H']
+black_letters = ['S','R','A','P','L','P','L','T','H','W']
 
 # generate the entire alphabet (of uppercase letters)
 for char in range(65, 91):
     if (chr(char) not in black_letters):
         all_letters.append(chr(char))
 green1 = green2[:] = green3[:] = green4[:] = green5[:] = all_letters[:]
+# remove any duplicate black letters
+black_letters = list(dict.fromkeys(black_letters))
 
 ### YELLOW LETTERS
 # add letters to be removed from specific positions
 yellow1 = ['']
-yellow2 = ['E','P']
-yellow3 = ['']
-yellow4 = ['']
-yellow5 = ['']
+yellow2 = ['']
+yellow3 = ['E']
+yellow4 = ['N']
+yellow5 = ['D','I']
 
 ### GREEN LETTERS
 # set letters that have been found in the right position - uncomment and add letter
-green1 = ['S']
-#green2 = ['']
-green3 = ['E']
-green4 = ['E']
-green5 = ['P']
+#green1 = ['']
+green2 = ['E']
+#green3 = ['']
+#green4 = ['']
+#green5 = ['']
 
 #region Execution
 # create list of letters to include based on Yellow Letters
 include = list(dict.fromkeys(','.join(filter(None,[*yellow1, *yellow2, *yellow3, *yellow4, *yellow5])).split(',')))
 
+for yellow_letter in include:
+    if yellow_letter in black_letters:
+        print ('Cannot include and exclude letter',yellow_letter,'. Please remove from either black_letters or yellow letters')
+        raise SystemExit(0)
+
 for first_letter in green1:
     if (len(green1) != 1):
-        print(1,end = '\n\n')
+        print(end = '\n\n')
         counter = 0
     if first_letter not in yellow1:
         for second_letter in green2:
@@ -78,9 +85,9 @@ for first_letter in green1:
                                             # rules
                                             if (
                                                 not(
-                                                    first_letter==second_letter==third_letter or
-                                                    second_letter==third_letter==fourth_letter or
-                                                    third_letter==fourth_letter==fifth_letter
+                                                    first_letter == second_letter == third_letter or
+                                                    second_letter == third_letter == fourth_letter or
+                                                    third_letter == fourth_letter == fifth_letter
                                                 )
                                             and ('XS' not in word)
                                             and (fifth_letter not in ['V','J'])
