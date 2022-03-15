@@ -10,7 +10,7 @@ How to use:
 - Uncomment and add the letter found in each spot  
 
 Running:
-- ALL arrays take *single UPPERCASE letters* as elements
+- ALL arrays take **single UPPERCASE letters** as elements
 - Run and try to find your word; the more info you have the less results will have to be parsed
 - You can modify the "wpl" var to print a different number of words per line (for readability)
 
