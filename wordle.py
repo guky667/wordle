@@ -36,8 +36,8 @@ yellow5 = ['']
 
 ### GREEN LETTERS
 # set letters that have been found in the right position - uncomment and add letter
-green1 = ['S']
-#green2 = ['']
+#green1 = ['']
+green2 = ['S']
 #green3 = ['']
 #green4 = ['']
 #green5 = ['']
@@ -58,10 +58,19 @@ for first_letter in green1:
             print_counter = 0
         for second_letter in green2:
             if second_letter not in yellow2:
+                if (len(green2) != 1 and len(green1) == 1):
+                    print(end = '\n\n')
+                    print_counter = 0
                 for third_letter in green3:
                     if third_letter not in yellow3:
+                        if(len(green3) == 1 and len(green2) == 1 and len(green1) == 1):
+                            print(end = '\n\n')
+                            print_counter = 0
                         for fourth_letter in green4:
                             if fourth_letter not in yellow4:
+                                if (len(green4) == 1 and len(green3) == 1 and len(green2) == 1 and len(green1) == 1):
+                                    print(end = '\n\n')
+                                    print_counter = 0
                                 for fifth_letter in green5:
                                     if fifth_letter not in yellow5:
                                         word = first_letter + second_letter + third_letter + fourth_letter + fifth_letter
@@ -83,15 +92,7 @@ for first_letter in green1:
                                                 print_counter += 1
                                                 print (word, end = '  ')
 
-                                                # output spacing based on which letters are static
-                                                if ((len(green2) == 1 and len(green1) == 1) or 
-                                                    (len(green3) == 1 and len(green2) == 1 and len(green1) == 1) or
-                                                    (len(green4) == 1 and len(green3) == 1 and len(green2) == 1 and len(green1) == 1)
-                                                ):
-                                                    print(end = '\n\n')
-                                                    print_counter = 0
-
-                                                if print_counter == words_per_line:
+                                                if print_counter >= words_per_line:
                                                     print_counter = 0
                                                     print()
 #endregion
