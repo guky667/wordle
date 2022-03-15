@@ -1,0 +1,3 @@
+You can use the developer console to immediately get the solution; open the inspector tools, and under console just type and enter:
+
+console.log(JSON.parse(this.localStorage['nyt-wordle-state']).solution)
