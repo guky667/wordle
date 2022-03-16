@@ -57,6 +57,8 @@ def filter_out(word):
         word[2] == word[3] == word[4]
     ):
         return False
+    if ('KK' in word or 'QQ' in word or 'UU' in word or 'YY' in word):
+        return False
     for letter in include:
         if (letter not in word):
             return False
