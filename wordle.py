@@ -68,6 +68,12 @@ def filter_out(word):
         'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word
     ):
         return False
+    if ((word[0] == 'Q' and word[1] != 'U') or
+        (word[1] == 'Q' and word[2] != 'U') or
+        (word[2] == 'Q' and word[3] != 'U') or
+        (word[3] == 'Q' and word[4] != 'U')
+    ):
+        return False
     return True
 
 # Generating a list of words
