@@ -59,21 +59,21 @@ def filter_out(word):
         word[2] == word[3] == word[4]
     ):
         return False
-    for letter in include:
-        if (letter not in word):
-            return False
-    if ('BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 'JQ' in word or
-        'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 'QB' in word or
-        'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or 'VJ' in word or 
-        'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word
-    ):
-        return False
     if ((word[0] == 'Q' and word[1] != 'U') or
         (word[1] == 'Q' and word[2] != 'U') or
         (word[2] == 'Q' and word[3] != 'U') or
         (word[3] == 'Q' and word[4] != 'U')
     ):
         return False
+    if ('BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 'JQ' in word or
+        'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 'QB' in word or
+        'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or 'VJ' in word or 
+        'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word
+    ):
+        return False
+    for letter in include:
+        if (letter not in word):
+            return False
     return True
 
 # Generating a list of words
