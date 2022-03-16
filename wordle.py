@@ -12,12 +12,12 @@ pivot_point = 0
 #endregion
 
 ### BLACK LETTERS - all inline
-black_letters = 'SERIKT'
+black_letters = 'SERIKTB'
 
 ### YELLOW LETTERS - per positions
-yellow1 = ''
+yellow1 = 'L'
 yellow2 = ''
-yellow3 = 'LA'
+yellow3 = 'LMA'
 yellow4 = 'A'
 yellow5 = ''
 
@@ -26,7 +26,7 @@ green1 = ''
 green2 = 'A'
 green3 = ''
 green4 = ''
-green5 = ''
+green5 = 'Y'
 
 #region Execution
 # generate the entire alphabet (of uppercase letters) and base lists of letter combinations 
@@ -75,7 +75,7 @@ words = [
 words = [word for word in words 
             if(# Grammar rules
                 'XS' not in word and
-                not('Q' in word and 'QU' not in word)
+                ('Q' in word and 'QU' not in word)
             )]
 
 # Choosing a pivot point for formatting
