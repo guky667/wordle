@@ -23,7 +23,7 @@ yellow5 = ''
 
 ### GREEN LETTERS - per positions
 green1 = ''
-green2 = 'A'
+green2 = ''
 green3 = ''
 green4 = ''
 green5 = 'Y'
@@ -75,7 +75,7 @@ words = [
 words = [word for word in words 
             if(# Grammar rules
                 'XS' not in word and
-                ('Q' in word and 'QU' not in word)
+                not('Q' in word and 'QU' not in word)
             )]
 
 # Choosing a pivot point for formatting
