@@ -51,17 +51,23 @@ for yellow_letter in include:
 
 # Define function for filtering out invalid words
 def filter_out(word):
+    if ('KK' in word or 'QQ' in word or 'UU' in word or 'YY' in word or 'HH' in word):
+        return False
     if (
         word[0] == word[1] == word[2] or
         word[1] == word[2] == word[3] or
         word[2] == word[3] == word[4]
     ):
         return False
-    if ('KK' in word or 'QQ' in word or 'UU' in word or 'YY' in word):
-        return False
     for letter in include:
         if (letter not in word):
             return False
+    if ('BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 'JQ' in word or
+        'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 'QB' in word or
+        'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or 'VJ' in word or 
+        'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word
+    ):
+        return False
     return True
 
 # Generating a list of words
