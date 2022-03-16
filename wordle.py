@@ -12,21 +12,21 @@ pivot_point = 0
 #endregion
 
 ### BLACK LETTERS - all inline
-black_letters = 'SERIKTBD'
+black_letters = 'SERAILKTMBYMCW'
 
 ### YELLOW LETTERS - per positions
-yellow1 = 'L'
+yellow1 = 'D'
 yellow2 = ''
-yellow3 = 'LMA'
-yellow4 = 'A'
+yellow3 = 'DN'
+yellow4 = 'OD'
 yellow5 = ''
 
 ### GREEN LETTERS - per positions
-green1 = 'M'
-green2 = 'A'
+green1 = ''
+green2 = ''
 green3 = ''
-green4 = 'L'
-green5 = 'Y'
+green4 = ''
+green5 = ''
 
 #region Execution
 # generate the entire alphabet (of uppercase letters) and base lists of letter combinations 
@@ -37,15 +37,30 @@ if green2 == '': green2 = [second_letter for second_letter in all_letters if sec
 if green3 == '': green3 = [third_letter for third_letter in all_letters if third_letter not in yellow3]
 if green4 == '': green4 = [fourth_letter for fourth_letter in all_letters if fourth_letter not in yellow4]
 if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth_letter not in yellow5 and fifth_letter not in 'VJ']
+
+# Choosing a pivot point for formatting
+if (len(green1) == 1 and len(green2) == 1): pivot_point = 1
 # create list of letters to include based on Yellow Letters
 include = ''.join(set(yellow1 + yellow2 + yellow3 + yellow4 + yellow5))
-
 
 # Bad input check
 for yellow_letter in include:
     if yellow_letter in black_letters:
         print ('Cannot include and exclude letter',yellow_letter,'. Please remove from either black_letters or yellow letters')
         raise SystemExit(0)
+
+# Define function for filtering out invalid words
+def filter_out(word):
+    if (
+        word[0] == word[1] == word[2] or
+        word[1] == word[2] == word[3] or
+        word[2] == word[3] == word[4]
+    ):
+        return False
+    for letter in include:
+        if (letter not in word):
+            return False
+    return True
 
 # Generating a list of words
 words = [
@@ -57,31 +72,8 @@ words = [
     for fourth_letter in green4
     for fifth_letter in green5
 
-    if(
-        not (
-            first_letter == second_letter == third_letter or
-            second_letter == third_letter == fourth_letter or
-            third_letter == fourth_letter == fifth_letter
-        )
-    )]
-
-for letter in include:
-    for word in words[:]:
-        if (letter not in word):
-            try:
-                words.remove(word)
-            except:
-                pass
-
-# Filtering words based on grammar rules
-words = [word for word in words 
-            if(# Grammar rules
-                'XS' not in word and
-                not('Q' in word and 'QU' not in word)
-            )]
-
-# Choosing a pivot point for formatting
-if (len(green1) == 1 and len(green2) == 1): pivot_point = 1
+    if(filter_out(first_letter + second_letter + third_letter + fourth_letter + fifth_letter))
+]
 
 # Printing the words
 for word in words:
