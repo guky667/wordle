@@ -4,7 +4,7 @@
 # region Vars and inits
 # SERAI _should_ be the best starting word
 
-words_per_line = 24
+words_per_line = 54
 print_counter = 0
 all_letters = []
 pivot_letter = ''
@@ -12,20 +12,20 @@ pivot_point = 0
 #endregion
 
 ### BLACK LETTERS - all inline
-black_letters = 'SERAILKTMBYMCW'
+black_letters = 'EAIHOT'
 
 ### YELLOW LETTERS - per positions
-yellow1 = 'D'
+yellow1 = ''
 yellow2 = ''
-yellow3 = 'DN'
-yellow4 = 'OD'
+yellow3 = 'R'
+yellow4 = ''
 yellow5 = ''
 
 ### GREEN LETTERS - per positions
-green1 = ''
+green1 = 'S'
 green2 = ''
 green3 = ''
-green4 = ''
+green4 = 'R'
 green5 = ''
 
 #region Execution
@@ -39,7 +39,8 @@ if green4 == '': green4 = [fourth_letter for fourth_letter in all_letters if fou
 if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth_letter not in yellow5 and fifth_letter not in 'VJ']
 
 # Choosing a pivot point for formatting
-if (len(green1) == 1 and len(green2) == 1): pivot_point = 1
+if (len(green1) == 1): pivot_point = 1
+if (len(green1) == 1 and len(green2) == 1): pivot_point = 2
 # create list of letters to include based on Yellow Letters
 include = ''.join(set(yellow1 + yellow2 + yellow3 + yellow4 + yellow5))
 
