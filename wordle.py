@@ -30,7 +30,7 @@ green5 = ''
 
 #region Execution
 # generate the entire alphabet (of uppercase letters) and base lists of letter combinations 
-all_letters = [chr(char) for char in range(65,75) if chr(char) not in ''.join(set(black_letters))]
+all_letters = [chr(char) for char in range(65,91) if chr(char) not in ''.join(set(black_letters))]
 
 if green1 == '': green1 = [first_letter for first_letter in all_letters if first_letter not in yellow1]
 if green2 == '': green2 = [second_letter for second_letter in all_letters if second_letter not in yellow2]
