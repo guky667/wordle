@@ -68,7 +68,7 @@ def filter_out(word):
     if ('BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 'JQ' in word or
         'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 'QB' in word or
         'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or 'VJ' in word or 
-        'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word or 'VP' in word
+        'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word or 'VP' in word or 'XS' in word
     ):
         return False
     for letter in include:
