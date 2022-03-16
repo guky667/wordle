@@ -8,6 +8,7 @@ words_per_line = 20
 print_counter = 0
 all_letters = []
 pivot_letter = ''
+pivot_point = 0
 #endregion
 
 ### BLACK LETTERS - all inline
@@ -22,7 +23,7 @@ yellow5 = ''
 
 ### GREEN LETTERS - per positions
 green1 = ''
-green2 = ''
+green2 = 'A'
 green3 = ''
 green4 = ''
 green5 = ''
@@ -78,7 +79,6 @@ words = [word for word in words
             )]
 
 # Choosing a pivot point for formatting
-if (len(green1) == 1): pivot_point = 0
 if (len(green1) == 1 and len(green2) == 1): pivot_point = 1
 
 # Printing the words
