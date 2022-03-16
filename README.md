@@ -14,7 +14,8 @@ Running:
 - You can modify the "words_per_line" var to print a different number of words per line (for readability)
 
 Rules:  
-- No consecutive 3 letters
-- No "XS" group of letters
 - No word ending in "V" or "J"
+- No groups of: KK, QQ, UU, YY or HH
+- No consecutive 3 letters
 - When in the word, "Q" has to be preceeded by a "U"
+- No groups of letters: BQ, CJ, CV, FZ, GQ, JQ, JV, JX, KQ, PQ, XZ, QB, JC, VC, ZF, QG, QJ, VJ, XJ, QK, QP, ZX, VP or XS
