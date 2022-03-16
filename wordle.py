@@ -6,93 +6,90 @@
 
 words_per_line = 20
 print_counter = 0
-green1 = []
-green2 = []
-green3 = []
-green4 = []
-green5 = []
 all_letters = []
+pivot_letter = ''
 #endregion
 
-### BLACK LETTERS 
-# letters to avoid, that are not part of the word
-black_letters = ['E','R','I']
+### BLACK LETTERS - all inline
+black_letters = 'SERIKT'
 
-# generate the entire alphabet (of uppercase letters)
-for char in range(65, 91):
-    if (chr(char) not in black_letters):
-        all_letters.append(chr(char))
-green1 = green2[:] = green3[:] = green4[:] = green5[:] = all_letters[:]
-# remove any duplicate black letters
-black_letters = list(dict.fromkeys(black_letters))
+### YELLOW LETTERS - per positions
+yellow1 = ''
+yellow2 = ''
+yellow3 = 'LA'
+yellow4 = 'A'
+yellow5 = ''
 
-### YELLOW LETTERS
-# add letters to be removed from specific positions
-yellow1 = ['']
-yellow2 = ['']
-yellow3 = ['']
-yellow4 = ['A']
-yellow5 = ['']
-
-### GREEN LETTERS
-# set letters that have been found in the right position - uncomment and add letter
-#green1 = ['']
-green2 = ['S']
-#green3 = ['']
-#green4 = ['']
-#green5 = ['']
+### GREEN LETTERS - per positions
+green1 = ''
+green2 = ''
+green3 = ''
+green4 = ''
+green5 = ''
 
 #region Execution
-# create list of letters to include based on Yellow Letters
-include = list(dict.fromkeys(','.join(filter(None,[*yellow1, *yellow2, *yellow3, *yellow4, *yellow5])).split(',')))
+# generate the entire alphabet (of uppercase letters) and base lists of letter combinations 
+all_letters = [chr(char) for char in range(65,75) if chr(char) not in ''.join(set(black_letters))]
 
+if green1 == '': green1 = [first_letter for first_letter in all_letters if first_letter not in yellow1]
+if green2 == '': green2 = [second_letter for second_letter in all_letters if second_letter not in yellow2]
+if green3 == '': green3 = [third_letter for third_letter in all_letters if third_letter not in yellow3]
+if green4 == '': green4 = [fourth_letter for fourth_letter in all_letters if fourth_letter not in yellow4]
+if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth_letter not in yellow5 and fifth_letter not in 'VJ']
+
+# create list of letters to include based on Yellow Letters
+include = ''.join(set(yellow1 + yellow2 + yellow3 + yellow4 + yellow5))
+
+# Bad input check
 for yellow_letter in include:
     if yellow_letter in black_letters:
         print ('Cannot include and exclude letter',yellow_letter,'. Please remove from either black_letters or yellow letters')
         raise SystemExit(0)
 
-for first_letter in green1:
-    if first_letter not in yellow1:
-        if (len(green1) != 1):
-            print(end = '\n\n')
-            print_counter = 0
-        for second_letter in green2:
-            if second_letter not in yellow2:
-                if (len(green2) != 1 and len(green1) == 1):
-                    print(end = '\n\n')
-                    print_counter = 0
-                for third_letter in green3:
-                    if third_letter not in yellow3:
-                        if(len(green3) == 1 and len(green2) == 1 and len(green1) == 1):
-                            print(end = '\n\n')
-                            print_counter = 0
-                        for fourth_letter in green4:
-                            if fourth_letter not in yellow4:
-                                if (len(green4) == 1 and len(green3) == 1 and len(green2) == 1 and len(green1) == 1):
-                                    print(end = '\n\n')
-                                    print_counter = 0
-                                for fifth_letter in green5:
-                                    if fifth_letter not in yellow5:
-                                        word = first_letter + second_letter + third_letter + fourth_letter + fifth_letter
-                                        valid = True
-                                        for letter in include:
-                                            if letter not in word:
-                                                valid = False
-                                        if valid == True:
-                                            # rules
-                                            if (
-                                                not(
-                                                    first_letter == second_letter == third_letter or
-                                                    second_letter == third_letter == fourth_letter or
-                                                    third_letter == fourth_letter == fifth_letter
-                                                )
-                                            and ('XS' not in word)
-                                            and (fifth_letter not in ['V','J'])
-                                            and not('Q' in word and 'QU' not in word)):
-                                                print_counter += 1
-                                                print (word, end = '  ')
+# Generating a list of words
+words = [
+    first_letter + second_letter + third_letter + fourth_letter + fifth_letter
 
-                                                if print_counter >= words_per_line:
-                                                    print_counter = 0
-                                                    print()
+    for first_letter in green1 
+    for second_letter in green2
+    for third_letter in green3 
+    for fourth_letter in green4
+    for fifth_letter in green5
+
+    if(
+        not (
+            first_letter == second_letter == third_letter or
+            second_letter == third_letter == fourth_letter or
+            third_letter == fourth_letter == fifth_letter
+        ) and (
+            first_letter in include or
+            second_letter in include or
+            third_letter in include or
+            fourth_letter in include or
+            fifth_letter in include 
+        )
+    )]
+
+# Filtering words based on grammar rules
+words = [word for word in words 
+            if(# Grammar rules
+                'XS' not in word and
+                not('Q' in word and 'QU' not in word)
+            )]
+
+# Choosing a pivot point for formatting
+if (len(green1) == 1): pivot_point = 0
+if (len(green1) == 1 and len(green2) == 1): pivot_point = 1
+
+# Printing the words
+for word in words:
+    print (word, end = ' ')
+    if pivot_letter != word[pivot_point]:
+        print(end = '\n\n')
+        print_counter = 0
+    if print_counter >= words_per_line:
+        print(end = '\n')
+        print_counter = 0
+    pivot_letter = word[pivot_point]
+    print_counter += 1
 #endregion
