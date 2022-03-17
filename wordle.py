@@ -30,10 +30,9 @@ green3 = ''
 green4 = ''
 green5 = ''
 
-
 #region Execution
 # generate the entire alphabet (of uppercase letters) and base lists of letter combinations 
-all_letters = [chr(char) for char in range(65,91) if chr(char) not in ''.join(black_letters)]
+all_letters = [chr(char) for char in range(65,91) if chr(char) not in black_letters]
 
 if green1 == '': green1 = [first_letter for first_letter in all_letters if first_letter not in yellow1]
 if green2 == '': green2 = [second_letter for second_letter in all_letters if second_letter not in yellow2]
@@ -53,29 +52,27 @@ for yellow_letter in include:
         print ('Cannot include and exclude letter',yellow_letter,'. Please remove from either black_letters or yellow letters')
         raise SystemExit(0)
 
-# Define function for filtering out invalid words
-def filter_out(words):
-    filtered_words = []
-    for word in words:
-        for letter in include:
-            if (letter not in word):
-                continue
-        if (
-            word[0] == word[1] == word[2] or
-            word[1] == word[2] == word[3] or
-            word[2] == word[3] == word[4] or
-            ('Q' in word and word[word.index('Q') + 1] != 'U')
-        ):
-            continue
-        if ('BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 'JQ' in word or
-            'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 'QB' in word or
-            'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or 'VJ' in word or 
-            'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word or 'VP' in word or 'XS' in word or
-            'KK' in word or 'QQ' in word or 'UU' in word or 'YY' in word or 'HH' in word
-        ):
-            continue
-        filtered_words.append(word)
-    return filtered_words
+
+def filter_out(word):
+    for letter in include:
+        if (letter not in word):
+            return False
+    if (
+        word[0] == word[1] == word[2] or
+        word[1] == word[2] == word[3] or
+        word[2] == word[3] == word[4] or
+        ('Q' in word and word[word.index('Q') + 1] != 'U')
+    ):
+        return False
+    if ('KK' in word or 'QQ' in word or 'UU' in word or 'YY' in word or 'HH' in word or
+        'BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 
+        'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 
+        'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or
+        'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word or 'VP' in word or
+        'JQ' in word or 'QB' in word or 'VJ' in word or 'XS' in word
+    ):
+        return False
+    return True
 
 # Generating a list of words
 unfiltered_words = [
@@ -87,7 +84,7 @@ unfiltered_words = [
     for fifth_letter in green5
 ]
 
-filtered_words = filter_out(unfiltered_words)
+filtered_words = list(filter(filter_out,unfiltered_words))
 
 # Printing the words
 for word in filtered_words:
