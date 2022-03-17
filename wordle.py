@@ -48,7 +48,7 @@ if green1 == '': green1 = [first_letter for first_letter in all_letters if first
 if green2 == '': green2 = [second_letter for second_letter in all_letters if second_letter not in yellow2]
 if green3 == '': green3 = [third_letter for third_letter in all_letters if third_letter not in yellow3]
 if green4 == '': green4 = [fourth_letter for fourth_letter in all_letters if fourth_letter not in yellow4]
-if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth_letter not in yellow5 and fifth_letter not in 'JVQ']
+if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth_letter not in yellow5 and fifth_letter not in 'JV']
 
 # Choosing a pivot point for formatting
 if (len(green1) == 1): pivot_point = 1
@@ -87,6 +87,10 @@ unfiltered_words = [
 ]
 
 filtered_words = list(filter(filter_out,unfiltered_words))
+
+if (len(filtered_words) > 50000):
+    print ('Too many results; try restricting the list of words by making additional guesses.')
+    raise SystemExit(0)
 
 # Printing the words
 for word in filtered_words:
