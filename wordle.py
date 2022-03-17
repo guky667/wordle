@@ -1,31 +1,33 @@
-# 2022 Alin-Gabriel Drăghici <guky667@gmail.com>  #
-# # # # # # # # # # # # # # # # # # # # # # # # # #
+# 2022 Alin-Gabriel Drăghici  #
+# <guky667@gmail.com>         #
+# # # # # # # # # # # # # # # #
 
-# region Vars and inits
-# SERAI _should_ be the best starting word
+# region Vars & inits
+# "SERAI" _should_ be the 
+# best starting word
 
-words_per_line = 54
+words_per_line = 26
 print_counter = 0
 all_letters = []
 pivot_letter = ''
 pivot_point = 0
 #endregion
 
-### BLACK LETTERS - all inline
-black_letters = 'EAIHOT'
+### BLACK LETTERS
+black_letters = 'SEROCKLP'
 
-### YELLOW LETTERS - per positions
+### YELLOW LETTERS
 yellow1 = ''
-yellow2 = ''
-yellow3 = 'R'
-yellow4 = ''
-yellow5 = ''
+yellow2 = 'T'
+yellow3 = ''
+yellow4 = 'AM'
+yellow5 = 'I'
 
-### GREEN LETTERS - per positions
-green1 = 'S'
+### GREEN LETTERS
+green1 = ''
 green2 = ''
 green3 = ''
-green4 = 'R'
+green4 = ''
 green5 = ''
 
 #region Execution
@@ -92,13 +94,13 @@ words = [
 
 # Printing the words
 for word in words:
-    print (word, end = ' ')
     if pivot_letter != word[pivot_point]:
         print(end = '\n\n')
         print_counter = 0
     if print_counter >= words_per_line:
         print(end = '\n')
         print_counter = 0
+    print (word, end = ' ')
     pivot_letter = word[pivot_point]
     print_counter += 1
 #endregion
