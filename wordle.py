@@ -6,8 +6,6 @@
 # "SERAI" _should_ be the 
 # best starting word
 
-import datetime
-
 words_per_line = 26
 print_counter = 0
 all_letters = ()
@@ -32,7 +30,6 @@ green3 = ''
 green4 = ''
 green5 = ''
 
-now = datetime.datetime.now()
 
 #region Execution
 # generate the entire alphabet (of uppercase letters) and base lists of letter combinations 
@@ -92,10 +89,6 @@ unfiltered_words = [
 
 filtered_words = filter_out(unfiltered_words)
 
-
-print (datetime.datetime.now() - now)
-raise SystemExit(0)
-
 # Printing the words
 for word in filtered_words:
     if pivot_letter != word[pivot_point]:
@@ -108,5 +101,3 @@ for word in filtered_words:
     pivot_letter = word[pivot_point]
     print_counter += 1
 #endregion
-
-print (datetime.datetime.now() - now)
