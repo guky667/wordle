@@ -6,7 +6,7 @@
 # "SERAI" _should_ be the 
 # best starting word
 
-words_per_line = 26
+words_per_line = 28
 print_counter = 0
 all_letters = ()
 pivot_letter = ''
@@ -14,21 +14,21 @@ pivot_point = 0
 #endregion
 
 ### BLACK LETTERS
-black_letters = ''
+black_letters = 'ASPRFGMD'
 
 ### YELLOW LETTERS
-yellow1 = ''
-yellow2 = ''
-yellow3 = ''
-yellow4 = ''
-yellow5 = ''
+yellow1 = 'I'
+yellow2 = 'E'
+yellow3 = 'ILE'
+yellow4 = 'LE'
+yellow5 = 'I'
 
 ### GREEN LETTERS
-green1 = ''
-green2 = ''
+green1 = 'L'
+green2 = 'I'
 green3 = ''
 green4 = ''
-green5 = ''
+green5 = 'E'
 
 #region Execution
 
@@ -48,7 +48,7 @@ if green1 == '': green1 = [first_letter for first_letter in all_letters if first
 if green2 == '': green2 = [second_letter for second_letter in all_letters if second_letter not in yellow2]
 if green3 == '': green3 = [third_letter for third_letter in all_letters if third_letter not in yellow3]
 if green4 == '': green4 = [fourth_letter for fourth_letter in all_letters if fourth_letter not in yellow4]
-if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth_letter not in yellow5 and fifth_letter not in 'JV']
+if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth_letter not in yellow5 and fifth_letter not in 'JVQ']
 
 # Choosing a pivot point for formatting
 if (len(green1) == 1): pivot_point = 1
@@ -65,12 +65,11 @@ def filter_out(word):
             or ('Q' in word and word[word.index('Q') + 1] != 'U')
         ):
             return False
-        if ('KK' in word or 'QQ' in word or 'UU' in word or 'YY' in word or 'HH' in word or
-            'BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 
-            'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 
-            'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or
-            'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word or 'VP' in word or
-            'JQ' in word or 'QB' in word or 'VJ' in word or 'XS' in word
+        if ('KK' in word or 'QQ' in word or 'UU' in word or 'YY' in word or 'HH' in word or 'WW' in word or
+            'BQ' in word or 'CJ' in word or 'CV' in word or 'FZ' in word or 'GQ' in word or 'VJ' in word or
+            'JV' in word or 'JX' in word or 'KQ' in word or 'PQ' in word or 'XZ' in word or 'QB' in word or
+            'JC' in word or 'VC' in word or 'ZF' in word or 'QG' in word or 'QJ' in word or 'JQ' in word or 
+            'XJ' in word or 'QK' in word or 'QP' in word or 'ZX' in word or 'VP' in word or 'XS' in word
         ):
             return False
 
