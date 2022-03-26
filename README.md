@@ -5,7 +5,11 @@ How to use:
 - Start with a word, ideally "SERAI" as it _should_ yield the most info (as per: https://towardsdatascience.com/a-frequency-analysis-on-wordle-9c5778283363)
 - Add BLACK LETTERS to the "black_letters" string
 - Add YELLOW LETTERS to each "yellow" string in the spot they were found in (1, 2, etc.) - OR black letters that are already part of the word but not doubled
-- Add GREEN LETTERS to each "green" string in the spot they were found in (1, 2, etc.)
+- Add GREEN LETTERS to each "green" string in the spot they were found in
+
+Examples for green letters:
+X in the 2nd position: green = '-X---'
+B in the 1st and 4th position: green ='B--B-'
 
 Running:
 - ALL strings take **UPPERCASE letters** as elements
