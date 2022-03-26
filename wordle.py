@@ -13,24 +13,37 @@ pivot_letter = ''
 pivot_point = 0
 #endregion
 
-### BLACK LETTERS
-black_letters = 'ASPRFGMD'
+black_letters = 'SERAYLGPOBMU'
 
-### YELLOW LETTERS
-yellow1 = 'I'
-yellow2 = 'E'
-yellow3 = 'ILE'
-yellow4 = 'LE'
-yellow5 = 'I'
+yellow1 = ''
+yellow2 = 'N'
+yellow3 = 'I'
+yellow4 = 'NI'
+yellow5 = 'NI'
 
-### GREEN LETTERS
-green1 = 'L'
-green2 = 'I'
-green3 = ''
-green4 = ''
-green5 = 'E'
+green_letters = '-INCH'
 
 #region Execution
+green1 = ''
+green2 = ''
+green3 = ''
+green4 = ''
+green5 = ''
+
+if green_letters[0]!='-':
+    green1 = green_letters[0]
+
+if green_letters[1]!='-':
+    green2 = green_letters[1]
+
+if green_letters[2]!='-':
+    green3 = green_letters[2]
+
+if green_letters[3]!='-':
+    green4 = green_letters[3]
+
+if green_letters[4]!='-':
+    green5 = green_letters[4]
 
 # create list of letters to include based on Yellow Letters
 include = ''.join(set(yellow1 + yellow2 + yellow3 + yellow4 + yellow5))
@@ -53,6 +66,7 @@ if green5 == '': green5 = [fifth_letter for fifth_letter in all_letters if fifth
 # Choosing a pivot point for formatting
 if (len(green1) == 1): pivot_point = 1
 if (len(green1) == 1 and len(green2) == 1): pivot_point = 2
+if (len(green1) == 1 and len(green2) == 1 and len(green3) == 1): pivot_point = 3
 
 def filter_out(word):
     for letter in include:
